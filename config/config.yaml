@@ -1,0 +1,47 @@
+# Configuration file for Breast Cancer Classification Project
+
+random_seed: 42
+
+data:
+  test_size: 0.2
+  stratify: true
+
+models:
+  logistic_regression:
+    max_iter: 1000
+    solver: 'lbfgs'
+  decision_tree:
+    max_depth: 10
+    min_samples_split: 5
+  random_forest:
+    n_estimators: 100
+    max_depth: 10
+    min_samples_split: 5
+
+balancing:
+  smote:
+    k_neighbors: 5
+  random_undersampling:
+    replacement: false
+  smoteenn:
+    smote_k_neighbors: 5
+
+evaluation:
+  cv_folds: 5
+  scoring_metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+    - roc_auc
+
+visualization:
+  figure_size: [10, 8]
+  dpi: 300
+  style: 'seaborn'
+
+paths:
+  data: 'data/'
+  models: 'models/'
+  results: 'results/'
+  reports: 'reports/'
